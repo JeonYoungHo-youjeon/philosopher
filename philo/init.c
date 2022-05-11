@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 00:58:44 by youjeon           #+#    #+#             */
-/*   Updated: 2022/05/12 01:09:18 by youjeon          ###   ########.fr       */
+/*   Updated: 2022/05/12 01:18:47 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,16 @@ int	ft_arg_init(t_arg *arg, int argc, char *argv[])
 	arg->time_to_die = ft_atoi(argv[2]);
 	arg->time_to_eat = ft_atoi(argv[3]);
 	arg->time_to_sleep = ft_atoi(argv[4]);
+	if (arg->philo_num <= 0 || arg->time_to_die < 0 || arg->time_to_eat < 0
+		|| arg->time_to_sleep < 0)
+	{
+		return (5);
+	}
 	if (argc == 6)
 	{
 		arg->eat_times = ft_atoi(argv[5]);
 		if (arg->eat_times <= 0)
-			return (5);
+			return (6);
 	}
 	if (ft_arg_init_mutex(arg))
 		return (1);

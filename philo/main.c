@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:59:52 by youjeon           #+#    #+#             */
-/*   Updated: 2022/05/12 01:09:07 by youjeon          ###   ########.fr       */
+/*   Updated: 2022/05/13 17:09:17 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	*ft_thread(void *argv)
 	philo = argv;
 	arg = philo->arg;
 	if (philo->id % 2)
-		usleep(10000);
+		usleep(1000);
+	else
+		usleep(500);
 	while (!arg->finish)
 	{
 		ft_philo_action(arg, philo);
@@ -80,7 +82,6 @@ int	ft_philo_start(t_arg *arg, t_philo *philo)
 	int		i;
 
 	i = 0;
-	arg->start_time = ft_get_time();
 	while (i < arg->philo_num)
 	{	
 		philo[i].last_eat_time = ft_get_time();

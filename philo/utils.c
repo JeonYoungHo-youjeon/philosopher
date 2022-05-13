@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 19:23:02 by youjeon           #+#    #+#             */
-/*   Updated: 2022/05/12 01:10:09 by youjeon          ###   ########.fr       */
+/*   Updated: 2022/05/13 16:47:30 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_atoi(char *str)
 		if ((result < 0 || chker > 19) && np == 1)
 			return (-1);
 		else if ((result < 0 || chker > 19) && np == -1)
-			return (0);
+			return (-1);
 		str++;
 	}
 	return (result * np);

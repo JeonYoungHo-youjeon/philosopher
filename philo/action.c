@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 00:54:24 by youjeon           #+#    #+#             */
-/*   Updated: 2022/05/12 01:09:43 by youjeon          ###   ########.fr       */
+/*   Updated: 2022/05/13 16:53:23 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_philo_printf(t_arg *arg, int id, char *msg)
 	pthread_mutex_lock(&(arg->print));
 	if (!(arg->finish))
 	{
-		printf("%lld %d %s \n", now - arg->start_time, id + 1, msg);
+		printf("%lld %d %s\n", now - arg->start_time, id + 1, msg);
 	}
 	pthread_mutex_unlock(&(arg->print));
 	return (0);
@@ -58,7 +58,7 @@ int	ft_philo_action(t_arg *arg, t_philo *philo)
 		philo->eat_count = philo->eat_count + 1;
 		ft_pass_time((long long)arg->time_to_eat, arg);
 		pthread_mutex_unlock(&(arg->forks[philo->right]));
-		pthread_mutex_unlock(&(arg->forks[philo->left]));
 	}
+	pthread_mutex_unlock(&(arg->forks[philo->left]));
 	return (0);
 }
